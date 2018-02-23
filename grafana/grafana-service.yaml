@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana
+  namespace: rook
+  labels:
+    app: grafana
+spec:
+  type: NodePort
+  ports:
+  - port: 3000
+    protocol: TCP
+    nodePort: 30912
+    targetPort: web
+  selector:
+    app: grafana
